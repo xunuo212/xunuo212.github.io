@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lei Li · 李磊</title>
+    <style>
+        /* 彻底模仿 Kaiming He 主页样式：左对齐，简洁，蓝链接，论文标题粗斜体 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            text-align: left; /* 全局左对齐 */
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 2.5rem auto 3.5rem auto;
+            padding: 0 30px;
+            text-align: left;
+        }
+
+        /* 头部区域 — 完全参照左图样式 */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 0 0 0.2rem 0;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .chinese-name {
+            font-weight: 300;
+            color: #3f5569;
+            margin-left: 10px;
+            font-size: 2rem; /* 略小，保持协调 */
+        }
+
+        .contact-line {
+            font-size: 1.1rem;
+            margin: 0.5rem 0 0.5rem 0;
+            text-align: left;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 1rem;
+        }
+
+        .contact-line a {
+            color: #0b5fff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
+        }
+
+        .contact-line a:hover {
+            border-bottom: 1px solid #0b5fff;
+        }
+
+        .contact-line .icon {
+            margin-right: 0.2rem;
+        }
+
+        .contact-line .separator {
+            margin: 0 1rem;
+            color: #aaa;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin: 0.25rem 0 1rem 0;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        p {
+            margin: 1.2rem 0;
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.25rem;
+            margin: 2rem 0 1.2rem 0;
+            letter-spacing: -0.01em;
+            text-align: left;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 0 1.5rem 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 0.6rem 0;
+            text-align: left;
+        }
+
+        .exp-block {
+            margin: 1.2rem 0;
+            text-align: left;
+        }
+
+        .exp-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .exp-desc {
+            margin-left: 1.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .exp-desc li::before {
+            content: "•";
+            color: #888;
+            display: inline-block;
+            width: 1rem;
+            margin-left: -1rem;
+        }
+
+        .compact-list li {
+            margin: 0.4rem 0;
+        }
+
+        .note-box {
+            background-color: #f9f9f9;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0b5fff;
+        }
+
+        .pub-item {
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pub-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 0.3rem 0;
+            text-align: left;
+        }
+
+        .pub-authors {
+            font-size: 1rem;
+            color: #2c3e50;
+            text-align: left;
+        }
+
+        .pub-authors strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .pub-venue {
+            font-size: 0.95rem;
+            color: #5e6b7c;
+            margin: 0.2rem 0 0.4rem 0;
+            text-align: left;
+        }
+
+        .pub-links {
+            margin: 0.25rem 0 0 0;
+            text-align: left;
+        }
+
+        .pub-links a {
+            margin-right: 0.8rem;
+            font-size: 0.95rem;
+            color: #0b5fff;
+            text-decoration: none;
+        }
+
+        .pub-links a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eaecef;
+            margin: 1rem 0;
+        }
+
+        .gs-link {
+            margin: -0.5rem 0 1.5rem 0;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .gs-link a {
+            color: #0b5fff;
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        a {
+            color: #0b5fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 头部：完全按照左图样式 -->
+    <h1>Dr. Li, Lei <span class="chinese-name">李磊</span></h1>
+
+    <div class="contact-line">
+        <span class="icon">🔗</span> <a href="mailto:lenny.lilei.cs@gmail.com">lenny.lilei.cs@gmail.com</a>
+        <span class="separator"></span> 
+        <span class="icon">📞</span> (+86) 17611171811
+        <span class="separator"></span> 
+        <span class="icon">🔗</span> <a href="#">Google Scholar</a>
+        <span style="margin-left: 0.5rem;">🎓</span>
+    </div>
+
+    <div class="subtitle">
+        Professor @ Beijing Institute of Technology, Scientist @ University of Washington,<br>
+        Chief Scientist @ AIThinktank, PhD @ University of Copenhagen
+    </div>
+
+    <!-- ========= Services ========= -->
+    <h2>Services</h2>
+    <ul class="compact-list">
+        <li>Committee member: AAAI 2025; GEOProcessing 2024/2025 Session Chair: CGI 2023</li>
+        <li><strong>Reviewer:</strong> Conference: e.g. CVPR, ICCV, ECCV, NIPS, ICLR, ICML – Journal: e.g. TPAMI, TMI, TMC, Information Fusion, TIP</li>
+        <li><strong>Teaching Services:</strong> Machine learning course, Advanced Deep Learning course</li>
+    </ul>
+
+    <!-- ========= Skills ========= -->
+    <h2>Skills</h2>
+    <ul class="compact-list">
+        <li><strong>Programming languages:</strong> C, C++, Python, Matlab; <strong>Platforms:</strong> Linux, windows, ARM</li>
+        <li><strong>Subjects:</strong> Machine Learning, Computer Vision, Natural Language Processing, Electronic Design</li>
+    </ul>
+
+    <!-- ========= Publications ========= -->
+    <h2>Publications</h2>
+    <div style="margin-bottom: 1rem;">
+        <span style="background: #f2f2f2; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.95rem;">
+            <strong>CORRESPONDING AUTHOR:</strong> * &nbsp; <strong>CO-FIRST AUTHOR:</strong> #
+        </span>
+    </div>
+    <div class="gs-link"><a href="#">Google Scholar Profile</a></div>
+
+    <!-- 论文条目开始，严格按照用户提供的列表，保留*和#，Lei Li加粗 -->
+    <div class="pub-item">
+        <div class="pub-title">Intrinsic Entropy of Context Length Scaling in LLMs</div>
+        <div class="pub-authors">Jingzhe Shi, Qinwei Ma, Hongyi Liu, Hang Zhao, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ICLR 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">RAM: Recover Any 3D Human Motion in-the-Wild</div>
+        <div class="pub-authors">Sen Jia, Ning Zhu, Jinqin Zhong, Jiale Zhou, Zhang Huaping, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">CVPR 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">CLEP: Contrastive Language-Pose Pretraining</div>
+        <div class="pub-authors">Sen Jia, Huayu Wang, Hsiang-Wei Huang, Zhaochong An, Jenq-Neng Hwang, Zhang Huaping, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">CVPR 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Learning to Learn Weight Generation via Local Consistency Diffusion</div>
+        <div class="pub-authors">Yunchuan Guan, Yu Liu, Ke Zhou, Zhiqi Shen, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">CVPR 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">PSGS: Text-driven Panorama Sliding Scene Generation via Gaussian Splatting</div>
+        <div class="pub-authors">Xin Zhang, Shen Chen, Jiale Zhou, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ICASSP 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">CAS-ViT: Convolutional Additive Self-attention Vision Transformers for Efficient Mobile Applications</div>
+        <div class="pub-authors">Tianfang Zhang, <strong>Lei Li</strong>, Yang Zhou, Wentao Liu, Chen Qian, Jenq-Neng Hwang, Xiangyang Ji</div>
+        <div class="pub-venue">IEEE TIP 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Multiple Human Motion Understanding</div>
+        <div class="pub-authors"><strong>Lei Li*</strong>, Sen Jia, Jenq-Neng Hwang</div>
+        <div class="pub-venue">AAAI 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">3DSceneEditor: Controllable 3D Scene Editing with Gaussian Splatting</div>
+        <div class="pub-authors">Ziyang Yan, Yihua Shao, Minwen Liao, Siyu Chen, Nan Wang, Muyuan Lin, Jenq-Neng Hwang, Hao Zhao, Fabio Remondino, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">WACV 2026</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Is Meta-Learning Out? Rethinking Unsupervised Few-Shot Classification with Limited Entropy</div>
+        <div class="pub-authors">Yunchuan Guan, Yu Liu, Ke Zhou, Zhiqi Shen, Jenq-Neng Hwang, Serge Belongie, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ICCV 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">AU-Blendshape for Fine-grained Stylized 3D Facial Expression Manipulation</div>
+        <div class="pub-authors">Hao Li, Ju Dai, Feng Zhou, Kaida Ning, <strong>Lei Li</strong>, Junjun Pan</div>
+        <div class="pub-venue">ICCV 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">PAMN: Multi-phase Correlation Modeling for Contrast-Enhanced 3D Medical Image Retrieval</div>
+        <div class="pub-authors">Haonan Tong, Ke Liu, Chuang Zhang, Xinglin Zhang, Tao Chen, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">EMNLP 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Learning an Efficient Optimizer via Hybrid-Policy Sub-Trajectory Balance</div>
+        <div class="pub-authors">Yunchuan Guan, Yu Liu, Ke Zhou, Hui Li, Sen Jia, Zhiqi Shen, Ziyang Wang, Xinglin Zhang, Tao Chen, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ECAI 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Attention Consistency for LLMs Explanation</div>
+        <div class="pub-authors">Tian Lan, Jinyuan Xu, Xue He, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">EMNLP 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">MoCount: Motion-Based Repetitive Action Counting</div>
+        <div class="pub-authors">Ruocheng Gu, Sen Jia, Yule Ma, Jinqin Zhong, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ACMMM 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Graph Canvas for Controllable 3D Scene Generation</div>
+        <div class="pub-authors">Libin Liu, Shen Chen, Sen Jia, Jingzhe Shi, Can Jin, Zongkai Wu, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ACMMM 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Medal S: Spatio-Textual Prompt Model for Medical Segmentation</div>
+        <div class="pub-authors">Pengcheng Shi, Jiawei Chen, Jiaqi Liu, Xinglin Zhang, Tao Chen, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">CVPR 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">CountLLM: Towards Generalizable Repetitive Action Counting via Large Language Model</div>
+        <div class="pub-authors">Ziyu Yao, Xuxin Cheng, Zhiqi Huang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">CVPR 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Wav2Sem: Plug-and-Play Audio Semantic Decoupling for 3D Speech-Driven Facial Animation</div>
+        <div class="pub-authors">Hao Li, Ju Dai, Xin Zhao, Feng Zhou, Junjun Pan, <strong>Lei Li</strong></div>
+        <div class="pub-venue">CVPR 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Human Motion Instruction Tuning</div>
+        <div class="pub-authors"><strong>Lei Li*</strong>, Sen Jia, Jianhao Wang, Zhongyu Jiang, Feng Zhou, Ju Dai, Tianfang Zhang, Zongkai Wu, Jenq-Neng Hwang</div>
+        <div class="pub-venue">CVPR 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Bayesian Optimization for Controlled Image Editing via LLMs</div>
+        <div class="pub-authors">Chengkun Cai, Haoliang Liu, Xu Zhao, Zhongyu Jiang, Tianfang Zhang, Zongkai Wu, John Lee, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ACL 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">The Role of Deductive and Inductive Reasoning in LLMs</div>
+        <div class="pub-authors">Chengkun Cai, Xu Zhao, Haoliang Liu, Zhongyu Jiang, Tianfang Zhang, Zongkai Wu, Jenq-Neng Hwang, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ACL 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">In-Context Meta LoRA Generation</div>
+        <div class="pub-authors">Yihua Shao, Minxi Yan, Yang Liu, Siyu Chen, Wenjie Chen, Xinwei Long, Ziyang Yan, <strong>Lei Li</strong>, Chenyu Zhang, Nicu Sebe, Hao Tang, Yan Wang, Hao Zhao, Mengzhu Wang, Jingcai Guo</div>
+        <div class="pub-venue">IJCAI 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Position-aware Guided Point Cloud Completion with CLIP Model</div>
+        <div class="pub-authors">Feng Zhou, Qi Zhang, Ju Dai, <strong>Lei Li</strong>, Qing Fan, Junliang Xing</div>
+        <div class="pub-venue">AAAI 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">UniHPR: Unified Human Pose Representation via Singular Value Contrastive Learning</div>
+        <div class="pub-authors">Zhongyu Jiang, Wenhao Chai, <strong>Lei Li*</strong>, Zhuoran Zhou, Cheng-Yen Yang, Jenq-Neng Hwang</div>
+        <div class="pub-venue">MIPR 2025 (Best Paper)</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Coarse-to-Fine Personalized LLM Impressions for Streamlined Radiology Reports</div>
+        <div class="pub-authors">Chengbo Sun, Hui Yi Leong, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ICML 2025 Workshop</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">TinyMentalLLMs Enable Depression Detection in Chinese Social Media Texts</div>
+        <div class="pub-authors">Jinyuan Xu, Tian Lan, Mathieu Valette, Pierre Magistry, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">RANLP 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Reassessing the Role of Chain-of-Thought in Sentiment Analysis: Insights and Limitations</div>
+        <div class="pub-authors">Kaiyuan Zheng, Qinghua Zhao, <strong>Lei Li</strong></div>
+        <div class="pub-venue">ICIC 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Medal S: Spatio-Textual Prompt Model for Medical Segmentation (Honorable Mention)</div>
+        <div class="pub-authors">Pengcheng Shi, Jiawei Chen, Jiaqi Liu, Xinglin Zhang, Tao Chen, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">CVPR 2025 Workshop</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">CMU-FlowNet: Exploring Point Cloud Scene Flow Estimation in Occluded Scenario</div>
+        <div class="pub-authors">Jingze Chen, <strong>Lei Li</strong>, Zerui Tang, Qiqin Lin, Junfeng Yao</div>
+        <div class="pub-venue">CVM 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">You Only Speak Once to See</div>
+        <div class="pub-authors">Wenhao Yang, Jianguo Wei, Wenhuan Lu, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ICASSP 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Dense Point Clouds Matter: Dust-GS for Scene Reconstruction from Sparse Viewpoints</div>
+        <div class="pub-authors">Shan Chen, Jiale Zhou, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">ICASSP 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">MonoMM: A Multi-scale Mamba-Enhanced Network for Real-time Monocular 3D Object Detection</div>
+        <div class="pub-authors">Youjia Fu, Zihao Xu, Junsong Fu, Huixia Xue, Shuqiu Tan, <strong>Lei Li*</strong>, Shaoxun Qing</div>
+        <div class="pub-venue">The Journal of Supercomputing 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Addressing Domain Shift via Imbalance-Aware Domain Adaptation in Embryo Development Assessment</div>
+        <div class="pub-authors"><strong>Lei Li*</strong>, Xinglin Zhang, Jun Liang, Huang Mengqian, Tao Chen</div>
+        <div class="pub-venue">Mathematical Biosciences and Engineering 2025</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Scaling Law for Time Series Forecasting</div>
+        <div class="pub-authors">Jingzhe Shi, Qinwei Ma, Huan Ma, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">NeurIPS 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">CHOPS: CHat with custOmer Profile Systems for Customer Service with LLMs</div>
+        <div class="pub-authors">Jingzhe Shi, Jialuo Li, Qinwei Ma, Zaiwen Yang, Huan Ma, <strong>Lei Li*</strong></div>
+        <div class="pub-venue">COLM 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">SSFlowNet: Semi-supervised Scene Flow Estimation on Point Clouds with Pseudo Label</div>
+        <div class="pub-authors">Jingze Chen, Simiao Zhuang, Qiqin Lin, Junfeng Yao, <strong>Lei Li</strong></div>
+        <div class="pub-venue">ICANN 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Robust Channel Learning for Large-Scale Radio Speaker Verification</div>
+        <div class="pub-authors">Wenhao Yang, Jianguo Wei, Wenhuan Lu, <strong>Lei Li</strong>, Xugang Lu</div>
+        <div class="pub-venue">IEEE Journal of Selected Topics in Signal Processing 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Incentive Mechanism for Uncertain Tasks under Differential Privacy</div>
+        <div class="pub-authors">Xikun Jiang, Chenhao Ying, <strong>Lei Li</strong>, Boris Düdder, Haiqin Wu, Haiming Jin, Yuan Luo</div>
+        <div class="pub-venue">IEEE Transactions on Services Computing 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Deep Point Cloud Regression for Above-ground Forest Biomass Estimation from Airborne LiDAR</div>
+        <div class="pub-authors">Stefan Oehmcke, <strong>Lei Li#</strong>, Katerina Trepekli, Jaime C. Revenga, Thomas Nord-Larsen, Fabian Gieseke, Christian Igel</div>
+        <div class="pub-venue">Remote Sensing of Environment 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">A Multi-objective Optimization Framework for Terrain Modification Based on a Combined Hydrological and Earthwork Cost-Benefit</div>
+        <div class="pub-authors">Hanwen Xu, Mark Randall, <strong>Lei Li</strong>, Yuyi Tan, Thomas Balstrøm</div>
+        <div class="pub-venue">Journal of Hydrology 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Image Semantic Segmentation via Chain-of-Thought Prompts</div>
+        <div class="pub-authors"><strong>Lei Li</strong></div>
+        <div class="pub-venue">WACV 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Back to Optimization: Diffusion-based Zero-shot 3D Human Pose Estimation</div>
+        <div class="pub-authors">Zhongyu Jiang, Zhuoran Zhou, <strong>Lei Li*</strong>, Wenhao Chai, Cheng-Yen Yang, Jenq-Neng Hwang</div>
+        <div class="pub-venue">WACV 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">RPCANet: Deep Unfolding RPCA Based Infrared Small Target Detection</div>
+        <div class="pub-authors">Fengyi Wu, Tianfang Zhang, <strong>Lei Li</strong>, Yian Huang, Zhenming Peng</div>
+        <div class="pub-venue">WACV 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Efficient Domain Adaptation via Generative Prior for 3D Infant Pose Estimation</div>
+        <div class="pub-authors">Zhuoran Zhou, Zhongyu Jiang, Wenhao Chai, Cheng-Yen Yang, <strong>Lei Li*</strong>, Jenq-Neng Hwang</div>
+        <div class="pub-venue">WACV 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Multi-scale Pseudo Labeling for Unsupervised Deep Edge Detection</div>
+        <div class="pub-authors">Changsheng Zhou, Chao Yuan, Hongxin Wang, <strong>Lei Li</strong>, Stefan Oehmcke, Junmin Liu, Jigen Peng</div>
+        <div class="pub-venue">Knowledge-Based Systems 2024</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Optimization-inspired Cumulative Transmission Network for Image Compressive Sensing</div>
+        <div class="pub-authors">Tianfang Zhang, <strong>Lei Li#</strong>, Zhenming Peng</div>
+        <div class="pub-venue">Knowledge-Based Systems 2023</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Mask-FPAN: Semi-supervised Face Parsing in the Wild with De-occlusion and UV GAN</div>
+        <div class="pub-authors"><strong>Lei Li*</strong>, Tianfang Zhang, Zhongfeng Kang, Xikun Jiang</div>
+        <div class="pub-venue">Computers & Graphics 2023</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Segment Any Building</div>
+        <div class="pub-authors"><strong>Lei Li</strong></div>
+        <div class="pub-venue">CGI 2023</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Hierarchical Edge Aware Learning for 3D Point Cloud</div>
+        <div class="pub-authors"><strong>Lei Li</strong></div>
+        <div class="pub-venue">CGI 2023</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Surgical Treatment of Complex Liver Tumors with AI</div>
+        <div class="pub-authors">Aijun Li, <strong>Lei Li</strong>, et al.</div>
+        <div class="pub-venue">Book 2023</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Attention-guided Pyramid Context Networks for Detecting Infrared Small Target under Complex Background</div>
+        <div class="pub-authors">Tianfang Zhang, <strong>Lei Li</strong>, Siying Cao, Tian Pu, Zhenming Peng</div>
+        <div class="pub-venue">IEEE Transactions on Aerospace and Electronic Systems 2023</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">LR-CSNet: Low-rank Deep Unfolding Network for Image Compressive Sensing</div>
+        <div class="pub-authors">Tianfang Zhang, <strong>Lei Li#</strong>, Christian Igel, Stefan Oehmcke, Fabian Gieseke, Zhenming Peng</div>
+        <div class="pub-venue">ICCC 2022 (Best Paper)</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Deep Learning Based 3D Point Cloud Regression for Estimating Forest Biomass</div>
+        <div class="pub-authors">Stefan Oehmcke, <strong>Lei Li*</strong>, Jaime C Revenga, Thomas Nord-Larsen, Katerina Trepekli, Fabian Gieseke, Christian Igel</div>
+        <div class="pub-venue">SIGSPATIAL 2022</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Above-ground Biomass Prediction for Croplands at a Sub-meter Resolution Using UAV–LiDAR and Machine Learning Methods</div>
+        <div class="pub-authors">Jaime C Revenga, Katerina Trepekli, Stefan Oehmcke, Rasmus Jensen, <strong>Lei Li</strong>, Christian Igel, Fabian Cristian Gieseke, Thomas Friborg</div>
+        <div class="pub-venue">Remote Sensing 2022</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">BuildSeg: A General Framework for the Segmentation of Buildings</div>
+        <div class="pub-authors"><strong>Lei Li</strong>, Tianfang Zhang, Stefan Oehmcke, Fabian Gieseke, Christian Igel</div>
+        <div class="pub-venue">Nordic Machine Intelligence 2022</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">Surgical Treatment of Liver Cancer Complicated with Inferior Vena Cava Tumor Thrombus</div>
+        <div class="pub-authors">Li Aijun, Chen Keji, Wu Bin, Lang Xilong, <strong>Lei Li</strong>, Ma Senlin, Wang Weijuan, Fang Kunpeng, Yin Lei, Kuang Yue, Liu Chao, Li Yong, Xiong Zhengxiang, Li Yi, Geng Li</div>
+        <div class="pub-venue">Book 2021</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <div class="pub-item">
+        <div class="pub-title">FACT: Fused Attention for Clothing Transfer with Generative Adversarial Networks</div>
+        <div class="pub-authors">Yicheng Zhang, <strong>Lei Li</strong>, Li Song, Rong Xie, Wenjun Zhang</div>
+        <div class="pub-venue">AAAI 2020</div>
+        <div class="pub-links"><a href="#">arXiv</a> <a href="#">code</a></div>
+    </div>
+    <hr>
+
+    <!-- 页脚 -->
+    <div class="footnote">
+        last updated · 2026 (from CV) · <a href="mailto:lenny.lilei.cs@gmail.com">lenny.lilei.cs@gmail.com</a>
+    </div>
+
+</div>
+</body>
+</html>
