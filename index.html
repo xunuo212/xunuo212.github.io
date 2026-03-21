@@ -1,9 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>My Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lei Li - Personal Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: #333; background: #fff; line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    nav { text-align: center; padding: 32px 0 24px; }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 28px; }
+    nav a {
+      text-decoration: none; color: #333; font-size: 12px;
+      font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    header { text-align: center; padding-bottom: 32px; }
+    h1 {
+      font-size: 28px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: #555;
+    }
+
+    .divider { height: 1px; background: #e5e5e5; margin-bottom: 40px; }
+
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      padding-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .main-content { grid-template-columns: 1fr; }
+    }
+
+    .contact-section h3 {
+      font-size: 14px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex; align-items: flex-start;
+      gap: 12px; margin-bottom: 16px;
+    }
+
+    .profile-section {
+      display: flex; flex-direction: column;
+      align-items: flex-end;
+    }
+
+    @media (max-width: 768px) {
+      .profile-section { align-items: center; }
+    }
+
+    .profile-photo {
+      width: 220px; height: 220px;
+      object-fit: cover; margin-bottom: 24px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 24px;
+    }
+
+    .content-section {
+      padding: 40px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .content-section h2 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .pub-item { margin-bottom: 14px; font-size: 14px; }
+    .venue { color: #666; font-style: italic; }
+  </style>
 </head>
+
 <body>
-    <h1>Hello, GitHub Pages!</h1>
+<div class="container">
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#jobs">Job Offers</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header id="home">
+    <h1>Lei Li</h1>
+    <p class="subtitle">Dr. Li, Lei · Professor @ BIT</p>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- LEFT -->
+    <div class="contact-section">
+      <h3>Contact</h3>
+
+      <div class="contact-item">
+        <span>Beijing Institute of Technology · University of Washington</span>
+      </div>
+
+      <div class="contact-item">
+        <span>Professor @ BIT · Researcher @ UW · Chief Scientist @ AIThinktank</span>
+      </div>
+
+      <div class="contact-item">
+        <a href="mailto:lenny.lilei.cs@gmail.com">lenny.lilei.cs@gmail.com</a>
+      </div>
+
+      <div class="admin-contact">
+        <p><strong>Research Focus</strong></p>
+        <p>Large multimodal/language models · Embody & Physical AI · AIGC</p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="profile-section">
+      <img src="8250abcf06f72bd8147aedfa51a830d5.png" class="profile-photo">
+
+      <div class="links-grid">
+        <a href="#">Google Scholar</a>
+        <a href="#">ResearchGate</a>
+        <a href="#">Semantic Scholar</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- RESEARCH -->
+  <section id="research" class="content-section">
+    <h2>Research</h2>
+    <p>Multi-modal learning, 3D generation, embodied AI, AIGC.</p>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="content-section">
+    <h2>Selected Publications</h2>
+    <div class="pub-item">
+      <strong>Intrinsic Entropy of Context Length Scaling in LLMs.</strong>
+      <span class="venue">ICLR 2026</span>
+    </div>
+  </section>
+
+</div>
 </body>
 </html>
